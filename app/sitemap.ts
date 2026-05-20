@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { CONTRACTORS } from "@/lib/data";
 import { POSTS } from "@/lib/posts";
 import { ROLES, CITIES, allLandingSlugs } from "@/lib/landing";
+import { COMPETITORS } from "@/lib/competitors";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://hirefinalists.com";
 
@@ -51,5 +52,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   void CITIES; // imported for type consistency
 
-  return [...staticPages, ...contractorPages, ...blogPages, ...hirePages];
+  const vsPages: MetadataRoute.Sitemap = [
+    { url: `${SITE_URL}/vs`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    ...COMPETITORS.map((c) => ({
+      url: `${SITE_URL}/vs/${c.slug}`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.75,
+    })),
+  ];
+
+  return [...staticPages, ...contractorPages, ...blogPages, ...hirePages, ...vsPages];
 }
