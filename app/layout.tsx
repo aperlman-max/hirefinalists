@@ -66,10 +66,13 @@ export default function RootLayout({
           <div className="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-gray-500">
             <span className="font-semibold text-gray-900">HireFinalists</span>
             <span>© 2026 HireFinalists. All rights reserved.</span>
-            <div className="flex gap-6">
+            <div className="flex flex-wrap justify-center gap-x-6 gap-y-2">
               <a href="/for-employers" className="hover:text-gray-900 transition-colors">For Employers</a>
               <a href="/apply" className="hover:text-gray-900 transition-colors">For Contractors</a>
               <a href="/pricing" className="hover:text-gray-900 transition-colors">Pricing</a>
+              <a href="/blog" className="hover:text-gray-900 transition-colors">Blog</a>
+              <a href="/privacy" className="hover:text-gray-900 transition-colors">Privacy</a>
+              <a href="/terms" className="hover:text-gray-900 transition-colors">Terms</a>
             </div>
           </div>
         </footer>
