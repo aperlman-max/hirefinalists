@@ -70,6 +70,7 @@ create table if not exists public.leads (
   source    text,
   ip        text,
   user_agent text,
+  details   jsonb,
   created_at timestamptz not null default now()
 );
 create index if not exists leads_email_idx on public.leads(email);

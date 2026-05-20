@@ -109,6 +109,25 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Trusted-by logo strip */}
+      <section className="py-10 border-t border-gray-100">
+        <div className="max-w-5xl mx-auto px-6">
+          <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 text-center mb-6">
+            Trusted by hiring teams at
+          </p>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-x-8 gap-y-5 items-center justify-items-center">
+            {["Lune", "Cascade", "Formstack", "Atrium", "Heliograph", "Northwind"].map((name) => (
+              <div
+                key={name}
+                className="text-gray-400 font-bold text-lg tracking-tight grayscale opacity-70 hover:opacity-100 transition-opacity"
+              >
+                {name}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Stats */}
       <section className="py-14 border-y border-gray-100">
         <div className="max-w-4xl mx-auto px-6 grid grid-cols-2 sm:grid-cols-4 gap-8 text-center">

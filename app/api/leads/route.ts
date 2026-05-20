@@ -5,7 +5,11 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export async function POST(req: Request) {
   try {
-    const { email, source } = (await req.json()) as { email?: string; source?: string };
+    const { email, source, details } = (await req.json()) as {
+      email?: string;
+      source?: string;
+      details?: Record<string, unknown>;
+    };
 
     if (!email || !EMAIL_RE.test(email)) {
       return NextResponse.json({ error: "Please enter a valid email." }, { status: 400 });
@@ -22,12 +26,13 @@ export async function POST(req: Request) {
         source: source ?? null,
         ip,
         user_agent: ua,
+        details: details ?? null,
       });
       if (error) {
         console.error("[leads] supabase insert failed:", error.message);
       }
     } else {
-      console.log("[leads] (no Supabase) new signup:", { email, source, ip, ua });
+      console.log("[leads] (no Supabase) new signup:", { email, source, ip, ua, details });
     }
 
     const forwardUrl = process.env.LEAD_WEBHOOK_URL;

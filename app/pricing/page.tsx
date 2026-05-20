@@ -20,7 +20,7 @@ const CONCIERGE = {
     "Slack channel with your talent partner",
     "Optional payroll & contractor management add-on",
   ],
-  ctaHref: "/get-started?plan=concierge",
+  ctaHref: "/talk",
 };
 
 const FAQS = [
